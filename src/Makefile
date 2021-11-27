@@ -8,7 +8,7 @@ all: Sec2_1 Sec2_3 Sec2_4
 clean:
 	del *.o *.exe $(BIN)\*.exe
 
-OBJ = tiff.o allocate.o randlib.o qGGMRF.o solve.o
+OBJ = .\lib\tiff.o .\lib\allocate.o .\lib\randlib.o .\lib\qGGMRF.o .\lib\solve.o
 
 Sec2_1: Sec2_1.o $(OBJ)
 	$(CC) $(CFLAGS) -o Sec2_1 Sec2_1.o $(OBJ) -lm

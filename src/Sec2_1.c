@@ -1,8 +1,8 @@
 #include <math.h>
-#include "tiff.h"
-#include "allocate.h"
-#include "randlib.h"
-#include "typeutil.h"
+#include "lib\tiff.h"
+#include "lib\allocate.h"
+#include "lib\randlib.h"
+#include "lib\typeutil.h"
 
 void error(char *name);
 
@@ -105,7 +105,7 @@ int main (int argc, char **argv)
                                     + pow(fabs(img1[i][j] - img1[i+1][j+1]), p*0.1) 
                                     + pow(fabs(img1[i][j] - img1[i+1][j-1]), p*0.1));
         }
-        sigma_ML[p] = sigma_ML[p]/ ((input_img.height-2)*(input_img.width-2));
+        sigma_ML[p] = sigma_ML[p]/ (2.0*(input_img.height-2)*(input_img.width-2));
         sigma_ML[p] = pow(sigma_ML[p], 1/(p*0.1));
         printf("when p = %f : sigma = %f\n", p*0.1, sigma_ML[p]);
     }    
