@@ -84,7 +84,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "noise.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/noise.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file noise.tif\n");
         exit ( 1 );
     }
@@ -152,7 +152,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "MAPestimate1.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/MAPestimate1.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file MAPestimate1.tif\n");
         exit ( 1 );
     }
@@ -200,7 +200,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "MAPestimate2.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/MAPestimate2.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file MAPestimate2.tif\n");
         exit ( 1 );
     }
@@ -248,7 +248,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "MAPestimate3.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/MAPestimate3.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file MAPestimate3.tif\n");
         exit ( 1 );
     }

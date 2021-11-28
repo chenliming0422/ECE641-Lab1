@@ -95,7 +95,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "Y.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/Y.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file Y.tif\n");
         exit ( 1 );
     }
@@ -155,7 +155,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "X.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/X.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file X.tif\n");
         exit ( 1 );
     }

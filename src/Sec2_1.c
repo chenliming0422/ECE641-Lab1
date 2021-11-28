@@ -78,7 +78,7 @@ int main (int argc, char **argv)
     }
 
     /* open output image file */
-    if ( ( fp = fopen ( "perr.tif", "wb" ) ) == NULL ) {
+    if ( ( fp = fopen ( "../output/perr.tif", "wb" ) ) == NULL ) {
         fprintf ( stderr, "cannot open file perr.tif\n");
         exit ( 1 );
     }
