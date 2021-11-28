@@ -6,14 +6,14 @@ BIN = ..\bin
 all: Sec2_1 Sec2_3 Sec2_4
 
 clean:
-	del *.o *.exe $(BIN)\*.exe
+	del *.o *.exe $(BIN)\*.exe lib\*.o
 
 OBJ = .\lib\tiff.o .\lib\allocate.o .\lib\randlib.o .\lib\qGGMRF.o .\lib\solve.o
 
 Sec2_1: Sec2_1.o $(OBJ)
 	$(CC) $(CFLAGS) -o Sec2_1 Sec2_1.o $(OBJ) -lm
 
-Sec2_3: Sec2_3.o $(OBJ) 
+Sec2_3: Sec2_3.o $(OBJ)
 	$(CC) $(CFLAGS) -o Sec2_3 Sec2_3.o $(OBJ) -lm
 
 Sec2_4: Sec2_4.o $(OBJ)

@@ -9,7 +9,7 @@ double prior_model(double **img, int M, int N, int u, int v, double g[3][3]);
 double pair_wise_gaussian(double **img, int M, int N, int u, int v, double g[3][3]);
 double circ_conv2d(double **img, int M, int N, int u, int v, double h[5][5]);
 void update_error(double **e, int M, int N, int u, int v, double num, double h[5][5]);
-double cost_function(double **e, double **x, int M, int N, double sigma_w, double sigma_x, double g[3][3]); 
+double cost_function(double **y, double **x, int M, int N, double sigma_w, double sigma_x, double h[5][5], double g[3][3]); 
 
 int main (int argc, char **argv) 
 {
@@ -141,7 +141,7 @@ int main (int argc, char **argv)
             update_error(e, M, N, i, j, x[i][j] - v, filter);
         }
 
-        cost[iter] = cost_function(e, x, M, N, sigma_w, sigma_x, prediction);
+        cost[iter] = cost_function(y, x, M, N, sigma_w, sigma_x, filter, prediction);
         printf("iter %2d : cost = %.15f\n", iter, cost[iter]);
     }
 
@@ -235,13 +235,15 @@ void update_error(double **e, int M, int N, int u, int v, double num, double h[5
     }
 }
 
-double cost_function(double **e, double **x, int M, int N, double sigma_w, double sigma_x, double g[3][3])
+double cost_function(double **y, double **x, int M, int N, double sigma_w, double sigma_x, double h[5][5], double g[3][3])
 {
     int i, j;
     double val = 0.0;
+    double tmp = 0.0;
     for (i = 0; i < M; i++)
     for (j = 0; j < N; j++){
-        val += (1.0/(2 * sigma_w * sigma_w)) * pow(e[i][j], 2);
+        tmp = y[i][j] - circ_conv2d(x, M, N, i, j, h);
+        val += (1.0/(2 * sigma_w * sigma_w)) * pow(tmp, 2);
         val += (1.0/(2 * sigma_x * sigma_x)) * pair_wise_gaussian(x, M, N, i, j, g);
     }
 
